@@ -1,0 +1,36 @@
+name: Verify
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout GitHub repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Yarn install
+        run: |
+          yarn install
+
+      - name: Yarn lint
+        run: |
+          yarn lint
+
+      - name: Yarn prettier
+        run: |
+          yarn prettier
+
+      - name: Yarn test
+        run: |
+          yarn test --ci --maxWorkers=2

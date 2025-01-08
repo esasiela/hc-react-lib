@@ -17,6 +17,7 @@
     "react-toastify": "^10.0.6"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@types/jest": "^27.0.1",
     "@types/lodash": "^4.17.14",
     "@types/node": "^16.7.13",
@@ -31,16 +32,18 @@
     "eslint-plugin-unicorn": "^56.0.1",
     "prettier": "^3.4.2",
     "react-scripts": "5.0.1",
+    "ts-jest": "^29.2.5",
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.18.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "test": "react-scripts test --watchAll=false",
+    "test:watch": "react-scripts test",
     "lint": "eslint .",
-    "prettier": "prettier -c ."
+    "prettier": "prettier -c .",
+    "prettier:fix": "prettier --write ."
   },
   "browserslist": {
     "production": [

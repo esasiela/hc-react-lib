@@ -1,0 +1,23 @@
+{
+  /* Set ENABLED to 'true' to enable this config. Recommend leaving the token in this file and having a startup script
+     such as docker/hc-config.sh execute to replace the token at runtime.
+
+     If you do enable, it is your responsibility to ensure your environment replaced
+     all tokens with values, because unaltered tokens will clobber default config values, which is unlikely to be
+     the desired behavior.
+
+     Consider only putting config properties you reasonably expect to change between environments.
+     The implication of putting something in here is that you are required to supply the appropriate ENV var
+     in your runtime environment, or it will send %TOKEN% literal unaltered strings.
+
+     When you add/remove items from this file, make sure to synchronize the ENV vars in docker/docker-local.sh.
+  */
+  ENABLED: "%ENABLED%",
+  HC: {
+    ENVIRONMENT: "%HC_ENV%",
+    NODE: "%HC_NODE%",
+  },
+  LOGIN: {
+    LOGIN_API_URL: "%LOGIN_API_URL%",
+  },
+}

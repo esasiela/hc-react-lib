@@ -1,0 +1,57 @@
+{
+  "name": "hc-react-lib",
+  "version": "1.0.0-snapshot.1",
+  "private": false,
+  "license": "ISC",
+  "dependencies": {
+    "@headlessui/react": "^2.2.0",
+    "@heroicons/react": "^2.2.0",
+    "axios": "^1.7.9",
+    "json5": "^2.2.3",
+    "jwt-decode": "^4.0.0",
+    "lodash": "^4.17.21",
+    "react": "18",
+    "react-dom": "18",
+    "react-helmet-async": "^2.0.5",
+    "react-router-dom": "^7.0.2",
+    "react-toastify": "^10.0.6"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.1",
+    "@types/lodash": "^4.17.14",
+    "@types/node": "^16.7.13",
+    "@types/react": "18",
+    "@types/react-dom": "18",
+    "@types/react-helmet-async": "^1.0.3",
+    "@types/react-router-dom": "^5.3.3",
+    "eslint": "^9.16.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-unicorn": "^56.0.1",
+    "prettier": "^3.4.2",
+    "react-scripts": "5.0.1",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.18.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint .",
+    "prettier": "prettier -c ."
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

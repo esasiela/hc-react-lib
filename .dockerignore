@@ -1,0 +1,17 @@
+# Ignore node_modules directory
+node_modules
+
+# Ignore build output (React app's build files)
+build
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE or editor files
+.vscode/
+.idea/
+*.swp
+
+# Ignore .env files
+.env*

@@ -1,0 +1,214 @@
+body {
+  margin: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.Toastify__toast {
+  border: 1px solid #2a7ae2;
+}
+
+.hc-content-box {
+  border: 2px solid #2a7ae2;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #e8e8e8;
+  margin-top: 20px;
+}
+
+.hc-content-box h3 {
+  margin: 0;
+}
+
+.hc-content-box em {
+  background-color: white;
+  padding: 1px 3px;
+  border: 1px solid #4582ec;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.hc-yeanay {
+  color: black;
+  padding: 1px 3px;
+  border: 1px solid black;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.hc-yeanay.yea {
+  background-color: #90EE90;
+}
+
+.hc-yeanay.nay {
+  background-color: #FF8080;
+}
+
+.hc-footer {
+  text-align: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.hc-footer-link {
+  color: #4582ec;
+  text-decoration: none;
+}
+
+.hc-footer-link:hover {
+  text-decoration: underline;
+}
+
+.hc-dev-pane-content {
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  text-align: left;
+}
+
+.hc-dev-pane-content-left {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.hc-dev-pane-content-right {
+  flex: 1;
+  border-left: 2px solid #ddd;
+  padding-left: 20px;
+}
+
+/* Root container for the dev pane */
+.hc-dev-toast-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: max-content;
+}
+
+/* Each row containing button and input */
+.hc-dev-toast-row {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Button styles */
+.hc-dev-toast-button {
+  flex: 1 1 auto;
+  padding: 2px;
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Input styles for alignment and consistency */
+.hc-dev-toast-input {
+  /*flex-grow: 1;*/
+  padding: 2px;
+  font-size: 1rem;
+}
+
+.hc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #4582ec;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.hc-header-nav {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.hc-header-nav-item {
+  text-decoration: none;
+  background-color: white;
+  color: #4582ec;
+  padding: 5px 10px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  box-sizing: border-box;
+  /* height: 40px; */
+}
+
+.hc-header-nav-item:hover {
+  border: 1px solid #2a7ae2;
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+.hc-content-box {
+  border: 2px solid #2a7ae2;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #e8e8e8;
+  margin-top: 20px;
+}
+
+.hc-menu-hamburger {
+  width: 19px;
+  height: 19px;
+  margin-left: 5px;
+}
+
+.hc-menu-items {
+  position: absolute; /* Position relative to parent container */
+  right: 0; /* Aligns the menu to the right */
+  margin-top: 0.5rem; /* Adds spacing below the button */
+  margin-right: 5px;
+  background-color: #f0f0f0; /* Matches the grey of a hovered nav item */
+  border-width: 1px 0px 1px 1px; /* top, right, bottom, left */
+  border-style: solid;
+  border-color: #2a7ae2;
+  border-radius: 4px 0px 0px 4px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  z-index: 50; /* Ensures menu appears above other content */
+  display: inline-block;
+  box-sizing: border-box;
+  min-width: 100px;
+  width: 200px;
+}
+
+.hc-menu-items a {
+  margin: 2px;
+  display: block; /* Forces links to stack vertically */
+  padding: 5px 10px; /* Matches nav item's padding */
+  color: #4582ec; /* Matches nav item's text color */
+  text-decoration: none; /* Removes underlines from links */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif; /* Matches nav item's font */
+  font-size: 16px; /* Matches nav item's font size */
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease; /* Adds hover effect */
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.hc-menu-items a:hover {
+  background-color: inherit; /* Prevents hover background color change */
+  border: 1px solid #828282;
+  cursor: pointer;
+}
+
+.hc-menu-items a:active {
+  background-color: #e0e0e0; /* Slightly darker for active state */
+}

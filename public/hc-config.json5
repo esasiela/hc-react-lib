@@ -12,12 +12,12 @@
 
      When you add/remove items from this file, make sure to synchronize the ENV vars in docker/docker-local.sh.
   */
-  ENABLED: "%ENABLED%",
+  ENABLED: '%ENABLED%',
   HC: {
-    ENVIRONMENT: "%HC_ENV%",
-    NODE: "%HC_NODE%",
+    ENVIRONMENT: '%HC_ENV%',
+    NODE: '%HC_NODE%',
   },
   LOGIN: {
-    LOGIN_API_URL: "%LOGIN_API_URL%",
+    LOGIN_API_URL: '%LOGIN_API_URL%',
   },
 }

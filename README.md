@@ -35,7 +35,7 @@ To test Docker locally, run these commands while sitting in the repo root dir. `
 
 ```shell
 # build
-./docker/docker-local.sh -b
+./bin/docker-local.sh -b
 ```
 
 - Builds a docker image named `hc-home-app`
@@ -44,7 +44,7 @@ To test Docker locally, run these commands while sitting in the repo root dir. `
 
 ```shell
 # run
-./docker/docker-local.sh -r
+./bin/docker-local.sh -r
 ```
 
 - Stop and remove any existing container named `hc-home-app`
@@ -77,13 +77,13 @@ If you run `hc-auth-api` according to the recommendation, you don't need to over
 
 #### Configuring local docker
 
-**Build config** - When running `./docker/docker-local.sh -b`, the only variable you need to set is environment variable `PUBLIC_URL`, so for example:
+**Build config** - When running `./bin/docker-local.sh -b`, the only variable you need to set is environment variable `PUBLIC_URL`, so for example:
 
 ```shell
-PUBLIC_URL=/apps/home ./docker/docker-local.sh -b
+PUBLIC_URL=/apps/home ./bin/docker-local.sh -b
 ```
 
-**Runtime config** - When running `./docker/docker-local.sh -r`, the approach is that all the values you need for `hc-config.json5` need to be supplied as env vars to the running container. Make sure you provide **every** config property that has a `%TOKEN%` token, unless you want the unaltered `%TOKEN%` string in your running environment.
+**Runtime config** - When running `./bin/docker-local.sh -r`, the approach is that all the values you need for `hc-config.json5` need to be supplied as env vars to the running container. Make sure you provide **every** config property that has a `%TOKEN%` token, unless you want the unaltered `%TOKEN%` string in your running environment.
 
 #### Configuring production docker
 

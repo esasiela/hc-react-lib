@@ -15,3 +15,5 @@ Thumbs.db
 
 # Ignore .env files
 .env*
+
+cappy-home/

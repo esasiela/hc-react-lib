@@ -29,10 +29,6 @@ COPY docker/default.conf /etc/nginx/conf.d/default.conf
 COPY docker/hc-config.sh /docker-entrypoint.d/hc-config.sh
 RUN chmod +x /docker-entrypoint.d/hc-config.sh
 
-RUN touch /var/run/nginx.pid
-RUN chown -R nginx:nginx /var/run/nginx.pid /usr/share/nginx/html /var/cache/nginx /var/log/nginx /etc/nginx/conf.d
-USER nginx
-
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]

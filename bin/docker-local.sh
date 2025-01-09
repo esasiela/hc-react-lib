@@ -17,6 +17,15 @@ fi
 # default PUBLIC_URL to / if not set
 : "${PUBLIC_URL:=/}"
 
+# default IMAGE_NAME to hc-home-app if not set: IMAGE_NAME=ghcr.io/esasiela/hc-home-app:main
+: "${IMAGE_NAME:=hc-home-app}"
+: "${CONTAINER_NAME:=hc-home-app}"
+: "${PORTS:=8080:80}"
+: "${HC_CONFIG_ENABLED:=true}"
+: "${HC_CONFIG_HC_ENV:=dev}"
+: "${HC_CONFIG_HC_NODE:=docker}"
+: "${HC_CONFIG_LOGIN_API_URL:=http://localhost:8081}"
+
 # Parse arguments
 case "$1" in
     -b|--build)
@@ -25,15 +34,16 @@ case "$1" in
         ;;
     -r|--run)
         # -e REACT_APP_CONTEXT_ROOT=$PUBLIC_URL \
-        docker rm -f hc-home-app 2>/dev/null || true && \
+        echo "running with ports [${PORTS}]"
+        docker rm -f ${CONTAINER_NAME} 2>/dev/null || true && \
         docker run -d \
-          --name hc-home-app \
-          -p 8080:80 \
-          -e HC_CONFIG_ENABLED=true \
-          -e HC_CONFIG_HC_ENV=dev \
-          -e HC_CONFIG_HC_NODE=docker \
-          -e HC_CONFIG_LOGIN_API_URL=http://localhost:8081 \
-          hc-home-app
+          --name ${CONTAINER_NAME} \
+          -p ${PORTS} \
+          -e HC_CONFIG_ENABLED=${HC_CONFIG_ENABLED} \
+          -e HC_CONFIG_HC_ENV=${HC_CONFIG_HC_ENV} \
+          -e HC_CONFIG_HC_NODE=${HC_CONFIG_HC_NODE} \
+          -e HC_CONFIG_LOGIN_API_URL=${HC_CONFIG_LOGIN_API_URL} \
+          ${IMAGE_NAME}
         ;;
     *)
         echo "Invalid argument: $1"

@@ -1,6 +1,6 @@
 interface DecodedToken {
   sub: string;
-  authorities: string[];
+  scope: string[];
 }
 
 export default class User {
@@ -31,7 +31,7 @@ export default class User {
       'fNameUnimplemented',
       'lNameUnimplemented',
       'email@unimplemented.com',
-      decodedToken.authorities
+      decodedToken.scope
     );
   }
 }

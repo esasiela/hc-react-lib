@@ -26,7 +26,7 @@ const HcDeveloperPane: React.FC = () => {
   });
 
   useEffect(() => {
-    if (!hasScope(SCOPE.DEVELOPER)) {
+    if (!hasScope(SCOPE.DEVELOPER_READ)) {
       // clear out any local storage in case user formerly was a dev
       localStorage.removeItem('isDevPaneCollapsed');
       return;
@@ -35,7 +35,7 @@ const HcDeveloperPane: React.FC = () => {
     localStorage.setItem('isDevPaneCollapsed', JSON.stringify(isCollapsed));
   }, [hasScope, isCollapsed]);
 
-  if (!hasScope(SCOPE.DEVELOPER)) {
+  if (!hasScope(SCOPE.DEVELOPER_READ)) {
     // do not process or render for unauthorized users
     return;
   }
@@ -53,7 +53,7 @@ const HcDeveloperPane: React.FC = () => {
   const testScopes: (string | undefined)[] = [
     SCOPE.USER_READ,
     SCOPE.USER_WRITE,
-    SCOPE.DEVELOPER,
+    SCOPE.DEVELOPER_READ,
     'admin',
     'superadmin',
   ];

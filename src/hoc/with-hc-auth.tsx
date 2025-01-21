@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/hc-auth-context';
 import { getConfig, SCOPE } from '../utils/hc-config';
+import { useSite } from '../context/hc-site-context';
 
 const withHcAuth = <P extends object>(
   WrappedComponent: React.ComponentType<P>,
@@ -11,6 +12,7 @@ const withHcAuth = <P extends object>(
 
   return (properties: P) => {
     const { isAuthenticated, hasScope, isAuthLoading } = useAuth();
+    const { isSiteLoading } = useSite();
     const navigate = useNavigate();
     const [accessGranted, setAccessGranted] = useState(false);
 
@@ -18,6 +20,14 @@ const withHcAuth = <P extends object>(
       if (isAuthLoading) {
         console.log(
           'withHcAuth.useEffect - auth is loading, not rendering anything yet'
+        );
+        return;
+      }
+
+      if (isSiteLoading) {
+        // TODO decide on HOC approach regarding Auth & Site providers
+        console.log(
+          'withHcAuth.useEffect - site is loading, not rendering anything yet'
         );
         return;
       }

@@ -7,6 +7,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  color: #4582ec;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #4582ec;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -34,6 +48,32 @@ code {
   border: 1px solid #4582ec;
   border-radius: 4px;
   display: inline-block;
+}
+
+.hc-page-title-container {
+  display: flex;
+  align-items: center;
+}
+
+.hc-page-title-breadcrumbs {
+  font-size: 1rem;
+  margin-left: 20px;
+}
+
+.hc-form-group {
+  margin-bottom: 10px;
+}
+
+.hc-form-group label {
+  display: inline-block;
+  width: 100px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.hc-form-group input {
+  padding: 2px;
+  font-size: 16px;
 }
 
 .hc-yeanay {

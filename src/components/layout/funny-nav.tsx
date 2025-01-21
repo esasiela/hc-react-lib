@@ -3,13 +3,16 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/hc-auth-context';
 import { SCOPE } from '../../utils/hc-config';
 import HcYeaNayString from '../hc-yea-nay-string';
+import { useSite } from '../../context/hc-site-context';
 
 const FunnyNav = () => {
   const { hasScope, isAuthenticated } = useAuth();
+  const { navItems } = useSite();
 
   return (
     <div>
-      <h3>Funny Nav</h3>
+      <h3>Super Fun Navigator</h3>
+      Hardcoded list of links for both authenticated and anonymous users:
       <ul>
         <li>
           <Link to={'/'}>Home</Link> - Public page
@@ -20,9 +23,23 @@ const FunnyNav = () => {
         </li>
         <li>
           <Link to={'/build-info'}>Build Info</Link> - Requires{' '}
-          <em>developer</em> access. Do you have it?{' '}
-          <HcYeaNayString status={hasScope(SCOPE.DEVELOPER)} />
+          <em>{SCOPE.DEVELOPER_READ}</em> access. Do you have it?{' '}
+          <HcYeaNayString status={hasScope(SCOPE.DEVELOPER_READ)} />
         </li>
+        <li>
+          <Link to={'/nav-info'}>Nav Info</Link> - Public page
+        </li>
+      </ul>
+      Dynamic list of links that reflects to your access level. A work in
+      progress, right now anonymous users just get links to the top-level sites,
+      and authenticated users get the full list of nav items regardless of
+      authority level:
+      <ul>
+        {navItems.map((item) => (
+          <li key={item.id}>
+            <a href={`${item.publicUrl}${item.path}`}>{item.title}</a>
+          </li>
+        ))}
       </ul>
     </div>
   );

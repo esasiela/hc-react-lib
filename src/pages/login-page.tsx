@@ -1,4 +1,3 @@
-// src/components/login-page.tsx
 import React, { useEffect, useState } from 'react';
 import { getConfig, SCOPE } from '../utils/hc-config';
 import { useAuth } from '../context/hc-auth-context';
@@ -26,6 +25,14 @@ const LoginPage = () => {
     }
   }, [config.LOGIN.DEFAULT_ENABLE]);
 
+  const handleProfileClick =
+    (username: string) => (event: React.MouseEvent<HTMLAnchorElement>) => {
+      event.preventDefault();
+      console.log('populating profile:', username, config.LOGIN.PUBLIC_PASS);
+      setUsername(username);
+      setPassword(config.LOGIN.PUBLIC_PASS);
+    };
+
   const handleSubmit = async (formEvent: React.FormEvent) => {
     formEvent.preventDefault();
 
@@ -46,13 +53,13 @@ const LoginPage = () => {
         console.log('Response OK, login was a success');
         const data = await response.json();
         login(data.token);
-        navigate(config.LOGIN.POST_LOGIN_PATH, {
+        navigate(config.LOGIN.POST_LOGIN_ROUTE, {
           state: { from: 'Logged In' },
         });
       } else {
         console.log('Response not OK, login failed');
-        const errorData = await response.json();
-        setError(errorData.message || 'LoginPage failed');
+        const errorData = (await response.json()) as LoginError;
+        setError(errorData || { message: 'LoginPage failed' });
       }
     } catch (error_) {
       console.log('Error Logging In:', error_);
@@ -65,9 +72,31 @@ const LoginPage = () => {
 
   return (
     <HcLayout pageTitle={'Login'}>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <div>
+      <div style={{ marginBottom: '15px' }}>
+        A normal site would never give away free logins without some kind of
+        registration process. However this is a demo site for fun, so feel free
+        to select one of these profiles:
+        <ul>
+          <li>
+            <a href={'#'} onClick={handleProfileClick('publicBase')}>
+              publicBase
+            </a>{' '}
+            - basic user with no special authorization
+          </li>
+          <li>
+            {' '}
+            <a href={'#'} onClick={handleProfileClick('publicDev')}>
+              publicDev
+            </a>{' '}
+            - the good stuff, a user with <em>{SCOPE.DEVELOPER_READ}</em>
+          </li>
+        </ul>
+      </div>
+
+      <form onSubmit={handleSubmit}>
+        <div>
+          {' '}
+          <div className={'hc-form-group'}>
             <label htmlFor={'username'}>Username</label>
             <input
               type={'text'}
@@ -79,7 +108,7 @@ const LoginPage = () => {
               required
             />
           </div>
-          <div>
+          <div className={'hc-form-group'}>
             <label htmlFor={'password'}>Password</label>
             <input
               type={'password'}
@@ -93,8 +122,8 @@ const LoginPage = () => {
           </div>
           {error && <p style={{ color: 'red' }}>{error.message}</p>}
           <button type={'submit'}>Login</button>
-        </form>
-      </div>
+        </div>
+      </form>
     </HcLayout>
   );
 };

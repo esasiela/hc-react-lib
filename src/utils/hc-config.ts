@@ -19,11 +19,13 @@ export interface HcConfigType {
   LOGIN: {
     LOGIN_API_URL: string;
     LOGIN_PATH: string;
-    POST_LOGIN_PATH: string;
-    POST_LOGOUT_PATH: string;
+    POST_LOGIN_ROUTE: string;
+    POST_LOGOUT_ROUTE: string;
+    PUBLIC_USER_LIST_PATH: string;
     DEFAULT_ENABLE: boolean | string;
     DEFAULT_USER: string;
     DEFAULT_PASS: string;
+    PUBLIC_PASS: string;
   };
 }
 
@@ -46,8 +48,10 @@ let config: HcConfigType = {
   LOGIN: {
     LOGIN_API_URL: 'http://localhost:8081',
     LOGIN_PATH: '/login',
-    POST_LOGIN_PATH: '/',
-    POST_LOGOUT_PATH: '/',
+    POST_LOGIN_ROUTE: '/',
+    POST_LOGOUT_ROUTE: '/',
+    PUBLIC_USER_LIST_PATH: '/publicUsers',
+    PUBLIC_PASS: process.env.REACT_APP_LOGIN_PUBLIC_PASS || '',
     DEFAULT_ENABLE: process.env.REACT_APP_LOGIN_DEFAULT_ENABLE === 'true',
     DEFAULT_USER: process.env.REACT_APP_LOGIN_DEFAULT_USER || '',
     DEFAULT_PASS: process.env.REACT_APP_LOGIN_DEFAULT_PASS || '',
@@ -101,5 +105,6 @@ export const SCOPE = {
   LOGGED_IN: '',
   USER_READ: 'user:read',
   USER_WRITE: 'user:write',
-  DEVELOPER: 'developer',
+  DEVELOPER_READ: 'dev:read',
+  DEVELOPER_WRITE: 'dev:write',
 };

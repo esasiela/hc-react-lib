@@ -51,7 +51,7 @@ let config: HcConfigType = {
     POST_LOGIN_ROUTE: '/',
     POST_LOGOUT_ROUTE: '/',
     PUBLIC_USER_LIST_PATH: '/publicUsers',
-    PUBLIC_PASS: process.env.REACT_APP_LOGIN_PUBLIC_PASS || '',
+    PUBLIC_PASS: 'REDACTED',
     DEFAULT_ENABLE: process.env.REACT_APP_LOGIN_DEFAULT_ENABLE === 'true',
     DEFAULT_USER: process.env.REACT_APP_LOGIN_DEFAULT_USER || '',
     DEFAULT_PASS: process.env.REACT_APP_LOGIN_DEFAULT_PASS || '',

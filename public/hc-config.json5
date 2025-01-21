@@ -19,5 +19,6 @@
   },
   LOGIN: {
     LOGIN_API_URL: '%LOGIN_API_URL%',
+    PUBLIC_PASS: '%PUBLIC_PASS%',
   },
 }

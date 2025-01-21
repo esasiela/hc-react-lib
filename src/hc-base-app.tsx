@@ -42,8 +42,8 @@ const HcBaseApp: React.FC<HcBaseAppProperties> = ({
   return (
     <HelmetProvider>
       <Router basename={getConfig().CONTEXT_ROOT || '/'}>
-        <HcSiteProvider siteTitle={siteTitle} logoImage={logoImage}>
-          <HcAuthProvider>
+        <HcAuthProvider>
+          <HcSiteProvider siteTitle={siteTitle} logoImage={logoImage}>
             <ToastContainer
               position={'top-center'}
               autoClose={5000}
@@ -55,8 +55,8 @@ const HcBaseApp: React.FC<HcBaseAppProperties> = ({
               theme={'light'}
             />
             <Routes>{children}</Routes>
-          </HcAuthProvider>
-        </HcSiteProvider>
+          </HcSiteProvider>
+        </HcAuthProvider>
       </Router>
     </HelmetProvider>
   );

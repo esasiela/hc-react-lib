@@ -42,19 +42,24 @@ const BuildInfoPage = () => {
   return (
     <HcLayout pageTitle={'Build Info'}>
       <p>
-        The the build info page code is included in the hc-react-lib package.
-        Each HC App that has an API service is expected to provide a{' '}
-        <em>/build-info</em> endpoint that requires <em>developer</em> scope.
+        The the build info page code is included in the <em>hc-react-lib</em>{' '}
+        package. Each HC App that has an API service is expected to provide a{' '}
+        <em>/build-info</em> endpoint that requires{' '}
+        <em>{SCOPE.DEVELOPER_READ}</em> scope.
       </p>
       <p>
         This implies that each app needs to provide an API service base url to
-        this page so he knows what to fetch. The current implementation just
-        uses HC Auth base url <em>{buildInfoEndpoint}</em>, so any HC App with a
-        route to this page will show the same thing.
+        this page so he knows what to fetch. This is easy to automate with maven
+        plugins and a GitHub Actions CI/CD pipeline.
+      </p>
+      <p>
+        The current implementation just uses HC Auth base url{' '}
+        <em>{buildInfoEndpoint}</em>, so any HC App with a route to this page
+        will show the same thing.
       </p>
       {error ? <p style={{ color: 'red' }}>(error)</p> : <pre>{buildInfo}</pre>}
     </HcLayout>
   );
 };
 
-export default withHcAuth(BuildInfoPage, SCOPE.DEVELOPER);
+export default withHcAuth(BuildInfoPage, SCOPE.DEVELOPER_READ);

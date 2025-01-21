@@ -11,7 +11,7 @@ const LogoutPage = () => {
 
   useEffect(() => {
     logout();
-    navigate(config.LOGIN.POST_LOGOUT_PATH, {
+    navigate(config.LOGIN.POST_LOGOUT_ROUTE, {
       state: { from: 'Logged Out' },
     });
   }, [logout, navigate]);

@@ -15,11 +15,16 @@ const TestPage = () => {
     <HcLayout pageTitle={'Test Page'} browserTitle={'Test'}>
       <div>
         <div>
-          This page requires you to be logged in:{' '}
+          This page requires you to be logged in, so I really hope you see a
+          pretty YES after this:{' '}
           <span className={`hc-yeanay ${authStatus ? 'yea' : 'nay'}`}>
             {authStatus ? 'YES' : 'NO'}
           </span>
         </div>
+        <p>
+          A simple use of <em>react-router-dom.useNavigate</em> to help me debug
+          the nesting of components in my Layout class:
+        </p>
         <p>
           <button onClick={() => navigate('/')}>Navigate Home</button>
         </p>
